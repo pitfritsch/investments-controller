@@ -1,0 +1,15 @@
+.background {
+  height: 100vh;
+  width: 100vw;
+}
+
+.navbar {
+  padding: 5px;
+}
+.navbar button {
+  margin: 5px;
+}
+
+.text-field {
+  color: #adadad;
+}

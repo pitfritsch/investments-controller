@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Navbar';
+import './style.css';
+import history from './history.js';
+import { Router, Switch, Route } from 'react-router';
+import Novo from './views/Novo';
+import Atualizar from './views/Atualizar';
+import Graficos from './views/Graficos';
+import { Grid, ThemeProvider } from '@material-ui/core';
+import { createMuiTheme } from '@material-ui/core';
+import { amber, teal } from '@material-ui/core/colors';
+
+const theme = createMuiTheme({
+  palette:{
+    primary: {
+      main: amber[700],
+    },
+    secondary: {
+      main: teal[900],
+    },
+  }
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Grid container spacing={3} style={{ padding: '20px' }}>
+        <Navbar />
+        <Router history={history}>
+          <Switch>
+            <Route path='/novo' component={Novo} />
+            <Route path='/atualizar' component={Atualizar} />
+            <Route path='/graficos' component={Graficos} />
+          </Switch>
+        </Router>
+      </Grid>
+    </ThemeProvider>
   );
 }
 
