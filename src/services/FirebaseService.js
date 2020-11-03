@@ -2,7 +2,7 @@ import { firebaseDatabase } from '../utils/firebaseUtils'
 
 export default class FirebaseService {
   
-  static getDataList = (nodePath, callback, size = 10) => {
+  static getDataList = (nodePath, callback, size = 30) => {
     let query = firebaseDatabase.ref(nodePath).limitToLast(size);
 
     query.on('value', dataSnapshot => {
